@@ -1,3 +1,18 @@
-<p *ngIf="member$ | async as member">
-  You are member: {{member | json}}
-</p>
+<section class="content">
+  <header class="content-title">
+    <h1>Welcome to Digibooky</h1>
+  </header>
+  <div class="content-body">
+
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+      <strong>Developer remark:</strong> as authentication and authorization have not yet been implemented by the development team, you are signed-in as a random pre-existing member.
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+
+    <p *ngIf="member$ | async as member">
+      You are signed is as member <strong>{{member.memberName.firstname}} {{member.memberName.lastname}}</strong> (<code>{{member.id}}</code>). For now, this is only relevant when borrowing a book.
+    </p>
+  </div>
+</section>
