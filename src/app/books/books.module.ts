@@ -5,10 +5,12 @@ import {BooksOverviewComponent} from './books-overview/books-overview.component'
 import {BookService} from './shared/book.service';
 import {HttpClientModule} from '@angular/common/http';
 import {ReactiveFormsModule} from '@angular/forms';
+import { BookDetailComponent } from './book-detail/book-detail.component';
 
 @NgModule({
   declarations: [
-    BooksOverviewComponent
+    BooksOverviewComponent,
+    BookDetailComponent
   ],
   providers: [
     BookService
