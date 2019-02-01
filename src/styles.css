@@ -84,6 +84,11 @@ aside {
   box-shadow: none !important;
 }
 
+.btn-primary:disabled {
+  background-color: #8f8c92;
+  border-color: #4e4b51;
+}
+
 .btn-default:active, .btn-default.active, .btn-default:hover, .btn-default:focus {
   color: black !important;
   -webkit-box-shadow: 10px 10px 30px -12px rgba(0,0,0,0.5) !important;
