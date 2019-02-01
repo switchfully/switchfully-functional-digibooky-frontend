@@ -16,11 +16,10 @@
 
           <div class="card" *ngFor="let book of books">
             <img class="card-img-top img-fluid" src="assets/book.jpg" alt="{{book.title}}">
-            <div class="card-body">
+            <div class="card-body text-center">
               <h5 class="card-title">{{book.title}}</h5>
-              <p class="card-text">{{book.author.authorName.name}}</p>
-              <p>{{book.copiesOfBook.length}}</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
+              <p class="card-text">by <strong>{{book.author.authorName.name}}</strong></p>
+              <a href="#" class="btn btn-lg btn-block btn-primary">View this book</a>
             </div>
           </div>
 

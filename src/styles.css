@@ -42,5 +42,37 @@ aside {
 }
 
 .card-title {
-  height: 50px;
+  height: 48px;
+}
+
+.card-text {
+  height: 45px;
+}
+
+.btn {
+  border: 0 none;
+}
+
+.btn:focus, .btn:active:focus, .btn.active:focus {
+  outline: 0 none;
+}
+
+.btn-primary {
+  background-color: #F37335;
+  border: 0;
+  -webkit-box-shadow: 10px 10px 30px -12px rgba(0,0,0,0.25);
+  -moz-box-shadow: 10px 10px 30px -12px rgba(0,0,0,0.25);
+  box-shadow: 10px 10px 30px -12px rgba(0,0,0,0.25);
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
+  background-color: #FDC830 !important;
+  color: black;
+  box-shadow: none;
+}
+
+.btn-primary:active, .btn-primary.active {
+  background-color: #b78b27 !important;
+  color: black !important;
+  box-shadow: none !important;
 }
