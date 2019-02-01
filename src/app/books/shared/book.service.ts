@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpParams} from '@angular/common/http';
+import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Book} from './book.model';
 
@@ -22,4 +22,7 @@ export class BookService {
     return this.http.get<Book[]>('digibooky/api/as/bookmanagement/books', {params: {...queryParams}});
   }
 
+  getBook(bookId: string) {
+    return this.http.get<Book>(`digibooky/api/as/bookmanagement/books/${bookId}`);
+  }
 }
