@@ -4,6 +4,7 @@ import {BooksRoutingModule} from './books-routing.module';
 import {BooksOverviewComponent} from './books-overview/books-overview.component';
 import {BookService} from './shared/book.service';
 import {HttpClientModule} from '@angular/common/http';
+import {ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import {HttpClientModule} from '@angular/common/http';
   imports: [
     CommonModule,
     HttpClientModule,
+    ReactiveFormsModule,
     BooksRoutingModule
   ]
 })

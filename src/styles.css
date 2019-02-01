@@ -65,6 +65,13 @@ aside {
   box-shadow: 10px 10px 30px -12px rgba(0,0,0,0.25);
 }
 
+.btn-default {
+  -webkit-box-shadow: 10px 10px 30px -12px rgba(0,0,0,0.25);
+  -moz-box-shadow: 10px 10px 30px -12px rgba(0,0,0,0.25);
+  box-shadow: 10px 10px 30px -12px rgba(0,0,0,0.25);
+  border: #bfbfbf solid thin;
+}
+
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
   background-color: #FDC830 !important;
   color: black;
@@ -75,4 +82,37 @@ aside {
   background-color: #b78b27 !important;
   color: black !important;
   box-shadow: none !important;
+}
+
+.btn-default:active, .btn-default.active, .btn-default:hover, .btn-default:focus {
+  color: black !important;
+  -webkit-box-shadow: 10px 10px 30px -12px rgba(0,0,0,0.5) !important;
+  -moz-box-shadow: 10px 10px 30px -12px rgba(0,0,0,0.5) !important;
+  box-shadow: 10px 10px 30px -12px rgba(0,0,0,0.5) !important;
+}
+
+.btn-default:focus {
+  -webkit-box-shadow: 10px 10px 30px -12px rgba(0,0,0,0.75) !important;
+  -moz-box-shadow: 10px 10px 30px -12px rgba(0,0,0,0.75) !important;
+  box-shadow: 10px 10px 30px -12px rgba(0,0,0,0.75) !important;
+}
+
+.btn-default:active, .btn-default.active, .open > .dropdown-toggle.btn-default {
+  box-shadow: none !important;
+  background-color: #8f8c92 !important;
+}
+
+.form-control {
+  -webkit-box-shadow: 10px 10px 30px -12px rgba(0,0,0,0.25) !important;
+  -moz-box-shadow: 10px 10px 30px -12px rgba(0,0,0,0.25) !important;
+  box-shadow: 10px 10px 30px -12px rgba(0,0,0,0.25) !important;
+}
+
+.form-control:focus {
+  border: #FDC830 solid thin;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  pointer-events: all !important;
 }
