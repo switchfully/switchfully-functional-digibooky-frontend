@@ -1,0 +1,7 @@
+{
+  "/digibooky/api/as/*":{
+    "target":"http://localhost:9800",
+    "secure":false,
+    "logLevel":"debug"
+  }
+}

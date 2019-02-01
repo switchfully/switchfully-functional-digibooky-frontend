@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {Observable} from 'rxjs';
+import {Member} from '../shared/member.model';
+import {MemberService} from '../shared/member.service';
 
 @Component({
   selector: 'app-member',
@@ -7,9 +10,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MemberComponent implements OnInit {
 
-  constructor() { }
+  member$: Observable<Member>;
+
+  constructor(private memberService: MemberService) { }
 
   ngOnInit() {
+    this.member$ = this.memberService.getCurrentMember();
   }
-
 }
