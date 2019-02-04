@@ -17,4 +17,8 @@ export class MemberComponent implements OnInit {
   ngOnInit() {
     this.member$ = this.memberService.getCurrentMember();
   }
+
+  storeMember(member: Member): void {
+    this.memberService.currentMember = member;
+  }
 }

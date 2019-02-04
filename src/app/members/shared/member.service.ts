@@ -8,6 +8,8 @@ import {Member} from './member.model';
 })
 export class MemberService {
 
+  private storedCurrentMember: Member;
+
   constructor(private http: HttpClient) {
   }
 
@@ -16,4 +18,11 @@ export class MemberService {
   }
 
 
+  get currentMember(): Member {
+    return this.storedCurrentMember;
+  }
+
+  set currentMember(value: Member) {
+    this.storedCurrentMember = value;
+  }
 }
