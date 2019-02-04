@@ -30,4 +30,9 @@ export class BooksOverviewComponent implements OnInit {
       this.serverSearchForm.value.searchValue);
   }
 
+  clearSearchFilters() {
+    this.books$ = this.bookService.getAllBooks();
+    this.serverSearchForm.reset();
+  }
+
 }

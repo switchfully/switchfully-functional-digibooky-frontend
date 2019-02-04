@@ -37,7 +37,8 @@
         <div class="books-overview" *ngIf="books$ | async; let books; else loading">
 
           <div *ngIf="books && books.length === 0" class="alert alert-secondary" role="alert">
-            <strong>Welp... </strong> no books could be found.
+            <strong>Welp... </strong> no books could be found...
+            <br><hr><button class="btn btn-default" (click)="clearSearchFilters()">Clear filters</button>
           </div>
 
           <div class="card" *ngFor="let book of books">
