@@ -9,6 +9,7 @@ import {Member} from './member.model';
 export class MemberService {
 
   private storedCurrentMember$: Observable<Member>;
+  private storedCurrentMember: Member;
 
   constructor(private http: HttpClient) {
   }
@@ -18,8 +19,18 @@ export class MemberService {
     return this.storedCurrentMember$;
   }
 
-  get currentMember(): Observable<Member> {
+  get currentMember$(): Observable<Member> {
     return this.storedCurrentMember$;
   }
 
+  get currentMember(): Member {
+    return this.storedCurrentMember;
+  }
+
+
+  set currentMember(member: Member) {
+    if (!this.storedCurrentMember) {
+      this.storedCurrentMember = member;
+    }
+  }
 }

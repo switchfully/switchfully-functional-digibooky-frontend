@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import {switchMap} from 'rxjs/operators';
+import {ActivatedRoute, ParamMap} from '@angular/router';
+import {Observable} from 'rxjs';
+import {BookService} from '../../shared/book.service';
+import {Bookloan} from '../../shared/bookloan.model';
 
 @Component({
   selector: 'app-bookloan-create',
@@ -7,9 +12,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BookloanCreateComponent implements OnInit {
 
-  constructor() { }
+  bookloan$: Observable<Bookloan>;
+
+  constructor(private route: ActivatedRoute, private bookService: BookService) { }
 
   ngOnInit() {
+    this.bookloan$ = this.route.paramMap.pipe(
+      switchMap((params: ParamMap) =>
+        this.bookService.createBookloan(params.get('bookCopyId')))
+    );
   }
 
 }

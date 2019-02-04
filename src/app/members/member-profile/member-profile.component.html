@@ -1,4 +1,5 @@
 <div *ngIf="currentMember$ | async as currentMember">
   <a class="nav-link" href="" data-target="#myModal" data-toggle="modal">User: <strong>{{currentMember.memberName.firstname}} {{currentMember.memberName.lastname}}</strong></a>
+  {{storeCurrentMember(currentMember)}}
 </div>
 

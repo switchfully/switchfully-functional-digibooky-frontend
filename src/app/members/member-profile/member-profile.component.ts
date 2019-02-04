@@ -18,4 +18,8 @@ export class MemberProfileComponent implements OnInit {
     this.currentMember$ = this.memberService.fetchCurrentMember();
   }
 
+  storeCurrentMember(member: Member): void {
+    this.memberService.currentMember = member;
+  }
+
 }
