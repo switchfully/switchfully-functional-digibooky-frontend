@@ -7,12 +7,14 @@ import {HttpClientModule} from '@angular/common/http';
 import {ReactiveFormsModule} from '@angular/forms';
 import { BookDetailComponent } from './book-detail/book-detail.component';
 import { BookloanCreateComponent } from './loans/bookloan-create/bookloan-create.component';
+import { BookCreateComponent } from './book-create/book-create.component';
 
 @NgModule({
   declarations: [
     BooksOverviewComponent,
     BookDetailComponent,
-    BookloanCreateComponent
+    BookloanCreateComponent,
+    BookCreateComponent
   ],
   providers: [
     BookService
