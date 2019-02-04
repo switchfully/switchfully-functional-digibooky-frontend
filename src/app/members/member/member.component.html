@@ -11,9 +11,5 @@
       </button>
     </div>
 
-    <p *ngIf="member$ | async as member">
-      You are signed is as member <strong>{{member.memberName.firstname}} {{member.memberName.lastname}}</strong> (<code>{{member.id}}</code>).
-      For now, this is only relevant when borrowing a book. {{storeMember(member)}}
-    </p>
   </div>
 </section>

@@ -8,21 +8,18 @@ import {Member} from './member.model';
 })
 export class MemberService {
 
-  private storedCurrentMember: Member;
+  private storedCurrentMember$: Observable<Member>;
 
   constructor(private http: HttpClient) {
   }
 
-  getCurrentMember(): Observable<Member> {
-    return this.http.get<Member>('digibooky/api/as/lending/members/current');
+  fetchCurrentMember(): Observable<Member> {
+    this.storedCurrentMember$ = this.http.get<Member>('digibooky/api/as/lending/members/current');
+    return this.storedCurrentMember$;
   }
 
-
-  get currentMember(): Member {
-    return this.storedCurrentMember;
+  get currentMember(): Observable<Member> {
+    return this.storedCurrentMember$;
   }
 
-  set currentMember(value: Member) {
-    this.storedCurrentMember = value;
-  }
 }

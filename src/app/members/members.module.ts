@@ -4,9 +4,13 @@ import { MemberComponent } from './member/member.component';
 import {MembersRoutingModule} from './members-routing.module';
 import {MemberService} from './shared/member.service';
 import {HttpClientModule} from '@angular/common/http';
+import { MemberProfileComponent } from './member-profile/member-profile.component';
 
 @NgModule({
-  declarations: [MemberComponent],
+  declarations: [
+    MemberComponent,
+    MemberProfileComponent
+  ],
   providers: [
     MemberService
   ],
@@ -14,6 +18,9 @@ import {HttpClientModule} from '@angular/common/http';
     CommonModule,
     HttpClientModule,
     MembersRoutingModule
+  ],
+  exports: [
+    MemberProfileComponent
   ]
 })
 export class MembersModule { }

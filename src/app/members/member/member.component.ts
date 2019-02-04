@@ -1,7 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import {Observable} from 'rxjs';
-import {Member} from '../shared/member.model';
-import {MemberService} from '../shared/member.service';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-member',
@@ -10,15 +7,8 @@ import {MemberService} from '../shared/member.service';
 })
 export class MemberComponent implements OnInit {
 
-  member$: Observable<Member>;
-
-  constructor(private memberService: MemberService) { }
+  constructor() { }
 
   ngOnInit() {
-    this.member$ = this.memberService.getCurrentMember();
-  }
-
-  storeMember(member: Member): void {
-    this.memberService.currentMember = member;
   }
 }
