@@ -1,3 +1,48 @@
-<p>
-  book-create works!
-</p>
+<section class="content" *ngIf="authors$ | async; let authors; else loading">
+  <header class="content-title">
+    <h1>Create book: {{bookCreationForm.controls.title.value}}</h1>
+  </header>
+  <div class="content-body">
+    <div class="row">
+
+      <div class="col-lg-12 col-12">
+
+        <form [formGroup]="bookCreationForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label for="titleField">Title of book</label>
+            <input type="text" formControlName="title" id="titleField" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="isbnField">Isbn-13</label>
+            <input type="text" formControlName="isbn" id="isbnField" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="authorField">Author</label>
+            <select class="form-control" formControlName="authorId" id="authorField">
+              <option [value]="author.id" *ngFor="let author of authors">
+                {{author.authorName.name}}
+              </option>
+            </select>
+          </div>
+          <hr>
+          <button type="submit" class="btn btn-primary" [disabled]="bookCreationForm.invalid">&#10010; Create book</button>
+        </form>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<ng-template #loading>
+  <section class="content">
+    <header class="content-title">
+      <h1>Loading...</h1>
+    </header>
+    <div class="content-body">
+      <div class="alert alert-secondary" role="alert">
+        We are retrieving the available authors...
+      </div>
+    </div>
+  </section>
+</ng-template>
