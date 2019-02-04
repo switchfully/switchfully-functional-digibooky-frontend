@@ -24,7 +24,8 @@ export class BookCreateComponent implements OnInit {
     this.bookCreationForm = new FormGroup({
       title: new FormControl('', Validators.required),
       authorId: new FormControl('', Validators.required),
-      isbn: new FormControl('', Validators.required)
+      isbn: new FormControl('', [Validators.required,
+        Validators.pattern('^(97(8|9))\\d{9}(\\d|X)$')])
     });
   }
 

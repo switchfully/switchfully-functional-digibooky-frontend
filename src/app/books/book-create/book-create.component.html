@@ -13,12 +13,15 @@
             <input type="text" formControlName="title" id="titleField" class="form-control">
           </div>
           <div class="form-group">
-            <label for="isbnField">Isbn-13</label>
+            <label for="isbnField">ISBN-13</label>
             <input type="text" formControlName="isbn" id="isbnField" class="form-control">
+            <small id="isbnPattern" class="form-text text-muted validation-text" *ngIf="bookCreationForm.controls.isbn.errors && bookCreationForm.controls.isbn.errors['pattern']">
+              Provide a valid ISBN-13, without colons or spaces.
+            </small>
           </div>
           <div class="form-group">
             <label for="authorField">Author</label>
-            <select class="form-control" formControlName="authorId" id="authorField">
+            <select class="form-control" formControlName="authorId" id="authorField" aria-describedby="isbnPattern">
               <option [value]="author.id" *ngFor="let author of authors">
                 {{author.authorName.name}}
               </option>
@@ -27,6 +30,8 @@
           <hr>
           <button type="submit" class="btn btn-primary" [disabled]="bookCreationForm.invalid">&#10010; Create book</button>
         </form>
+
+
 
       </div>
 
