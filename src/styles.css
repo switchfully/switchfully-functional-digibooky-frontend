@@ -121,3 +121,15 @@ button:disabled {
   cursor: not-allowed;
   pointer-events: all !important;
 }
+
+.orange {
+  color: #FDC830;
+}
+
+.navbar-brand {
+  padding: 0.5rem;
+  background-color: #000000;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
+}
