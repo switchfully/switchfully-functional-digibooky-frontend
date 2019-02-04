@@ -2,10 +2,11 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.0.
 
-## Development Server with proxy
+## Build
 
-Run `npm start` for a dev server. It will execute `ng serve` with a configured proxy. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+- If the app is not hosted at the base href level, use option `--base-href`
+  - E.g. `ng build --prod --base-href /track/functional/digibooky/`
 
 ## Development server
 
@@ -14,10 +15,6 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 ## Code scaffolding
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
 ## Running unit tests
 
