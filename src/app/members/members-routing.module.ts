@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { MemberComponent } from './member/member.component';
 
 const membersRoutes: Routes = [
-  { path: 'members',  component: MemberComponent }
+  { path: '',  component: MemberComponent, pathMatch: 'full' }
 ];
 
 @NgModule({
