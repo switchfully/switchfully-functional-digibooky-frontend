@@ -1,8 +1,5 @@
 <section class="content">
   <header class="content-title">
-    <div class="float-right">
-      <a routerLink="create" class="btn btn-lg btn-primary"><strong>&#10010;</strong></a>
-    </div>
     <h1>Books overview</h1>
 
   </header>
@@ -15,23 +12,24 @@
           <h4>Search books</h4>
           <hr>
           <form [formGroup]="serverSearchForm" (ngSubmit)="onSubmit()">
-          <div class="form-group">
-            <input type="text" formControlName="searchValue" class="form-control" placeholder="Search...">
-          </div>
-          <div class="form-group">
-            <select class="form-control" formControlName="searchCriterion" aria-describedby="searchHelp">
-              <option>Title</option>
-              <option>Author</option>
-              <option>Isbn</option>
-            </select>
-            <small id="searchHelp" class="form-text text-muted">Select the criterion on which you want to search</small>
-          </div>
+            <div class="form-group">
+              <input type="text" formControlName="searchValue" class="form-control" placeholder="Search...">
+            </div>
+            <div class="form-group">
+              <select class="form-control" formControlName="searchCriterion" aria-describedby="searchHelp">
+                <option>Title</option>
+                <option>Author</option>
+                <option>Isbn</option>
+              </select>
+              <small id="searchHelp" class="form-text text-muted">Select the criterion on which you want to search
+              </small>
+            </div>
             <div class="btn-group" role="group">
-              <button type="submit" class="btn btn-default" [disabled]="serverSearchForm.invalid">Perform search</button>
-              <button class="btn btn-default" (click)="clearSearchFilters()">Clear</button>
+              <button type="submit" class="btn btn-default" [disabled]="serverSearchForm.invalid">Perform search
+              </button>
             </div>
 
-        </form>
+          </form>
         </div>
 
       </aside>
@@ -39,11 +37,6 @@
       <div class="col-lg-10 col-12">
 
         <div class="books-overview" *ngIf="books$ | async; let books; else loading">
-
-          <div *ngIf="books && books.length === 0" class="alert alert-secondary" role="alert">
-            <strong>Welp... </strong> no books could be found...
-            <br><hr><button class="btn btn-default" (click)="clearSearchFilters()">Clear filters</button>
-          </div>
 
           <div class="card" *ngFor="let book of books">
             <img class="card-img-top img-fluid" src="assets/book.jpg" alt="{{book.title}}">
