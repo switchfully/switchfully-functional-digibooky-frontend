@@ -7,6 +7,7 @@ import {MembersModule} from './members/members.module';
 import {BooksModule} from './books/books.module';
 import {BackendInterceptor} from './interceptors/BackendInterceptor';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
+import {ErrorService} from './interceptors/error.service';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import {HTTP_INTERCEPTORS} from '@angular/common/http';
     BooksModule
   ],
   providers: [
+    ErrorService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: BackendInterceptor,

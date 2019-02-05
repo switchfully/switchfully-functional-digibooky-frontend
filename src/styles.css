@@ -20,6 +20,10 @@ body {
   padding: 1rem;
 }
 
+.error-message {
+  margin: 3rem 3rem 0 3rem;
+}
+
 .content-title {
   padding: 1rem;
   background: #FDC830;  /* fallback for old browsers */
