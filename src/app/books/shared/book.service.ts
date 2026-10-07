@@ -30,7 +30,7 @@ export class BookService {
   }
 
   createBookloan(bookCopyId: string): Observable<Bookloan> {
-    return this.http.post<Bookloan>('digibooky/api/as/lending/bookloans', {bookCopyId, memberId: this.memberService.currentMember.id});
+    return this.http.post<Bookloan>('digibooky/api/as/lending/bookloans', {bookCopyId, memberId: this.memberService.currentMember!.id});
   }
 
   createBook(authorId: string, isbn: string, title: string): Observable<Book> {

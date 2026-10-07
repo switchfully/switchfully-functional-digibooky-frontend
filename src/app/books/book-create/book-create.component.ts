@@ -8,13 +8,14 @@ import {tap} from 'rxjs/operators';
 
 @Component({
   selector: 'app-book-create',
+  standalone: false,
   templateUrl: './book-create.component.html',
   styleUrls: ['./book-create.component.css']
 })
 export class BookCreateComponent implements OnInit {
 
-  authors$: Observable<Author[]>;
-  bookCreationForm: FormGroup;
+  authors$!: Observable<Author[]>;
+  bookCreationForm!: FormGroup;
 
   constructor(private bookService: BookService, private router: Router) {
   }
@@ -31,9 +32,9 @@ export class BookCreateComponent implements OnInit {
 
   onSubmit(): void {
     this.bookService.createBook(
-      this.bookCreationForm.controls.authorId.value,
-      this.bookCreationForm.controls.isbn.value,
-      this.bookCreationForm.controls.title.value,
+      this.bookCreationForm.controls['authorId'].value,
+      this.bookCreationForm.controls['isbn'].value,
+      this.bookCreationForm.controls['title'].value,
     ).subscribe(book => this.router.navigate([`/books/${book.id}`]));
   }
 

@@ -1,31 +1,30 @@
-<section class="content" *ngIf="bookloan$ | async; let bookloan; else loading">
-  <header class="content-title">
-    <h1>Borrowing...</h1>
-  </header>
-  <div class="content-body">
-    <div class="row">
-
-      <div class="col-lg-112 col-12">
-        <h2>You are now borrowing the selected book</h2>
-        Thank you <strong>{{bookloan.member.memberName.firstname}} {{bookloan.member.memberName.lastname}}</strong> for using Digibooky.
-        <br>The selected book is due on <strong>{{bookloan.dueDate | date}}</strong>.
-        <hr>
-        <a routerLink="/books" class="btn btn-lg btn-block btn-primary">Back to the overview of books</a>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<ng-template #loading>
+@if (bookloan$ | async; as bookloan) {
   <section class="content">
     <header class="content-title">
-      <h1>Loading...</h1>
+      <h1>Borrowing...</h1>
     </header>
     <div class="content-body">
-      <div class="alert alert-secondary" role="alert">
-        We are creating your book loan...
+      <div class="row">
+        <div class="col-lg-112 col-12">
+          <h2>You are now borrowing the selected book</h2>
+          Thank you <strong>{{bookloan.member.memberName.firstname}} {{bookloan.member.memberName.lastname}}</strong> for using Digibooky.
+          <br>The selected book is due on <strong>{{bookloan.dueDate | date}}</strong>.
+          <hr>
+            <a routerLink="/books" class="btn btn-lg btn-block btn-primary">Back to the overview of books</a>
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
-</ng-template>
+    </section>
+  } @else {
+    <section class="content">
+      <header class="content-title">
+        <h1>Loading...</h1>
+      </header>
+      <div class="content-body">
+        <div class="alert alert-secondary" role="alert">
+          We are creating your book loan...
+        </div>
+      </div>
+    </section>
+  }
+

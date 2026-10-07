@@ -5,12 +5,13 @@ import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-member-profile',
+  standalone: false,
   templateUrl: './member-profile.component.html',
   styleUrls: ['./member-profile.component.css']
 })
 export class MemberProfileComponent implements OnInit {
 
-  currentMember$: Observable<Member>;
+  currentMember$!: Observable<Member>;
 
   constructor(private memberService: MemberService) { }
 

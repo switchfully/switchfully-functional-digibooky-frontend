@@ -8,8 +8,8 @@ import {Member} from './member.model';
 })
 export class MemberService {
 
-  private storedCurrentMember$: Observable<Member>;
-  private storedCurrentMember: Member;
+  private storedCurrentMember$!: Observable<Member>;
+  private storedCurrentMember?: Member;
 
   constructor(private http: HttpClient) {
   }
@@ -23,7 +23,7 @@ export class MemberService {
     return this.storedCurrentMember$;
   }
 
-  get currentMember(): Member {
+  get currentMember(): Member | undefined {
     return this.storedCurrentMember;
   }
 

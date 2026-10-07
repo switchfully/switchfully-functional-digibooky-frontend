@@ -14,56 +14,58 @@
         <div class="aside-block">
           <h4>Search books</h4>
           <hr>
-          <form [formGroup]="serverSearchForm" (ngSubmit)="onSubmit()">
-          <div class="form-group">
-            <input type="text" formControlName="searchValue" class="form-control" placeholder="Search...">
+            <form [formGroup]="serverSearchForm" (ngSubmit)="onSubmit()">
+              <div class="form-group">
+                <input type="text" formControlName="searchValue" class="form-control" placeholder="Search...">
+              </div>
+              <div class="form-group">
+                <select class="form-control" formControlName="searchCriterion" aria-describedby="searchHelp">
+                  <option>Title</option>
+                  <option>Author</option>
+                  <option>Isbn</option>
+                </select>
+                <small id="searchHelp" class="form-text text-muted">Select the criterion on which you want to search</small>
+              </div>
+              <div class="btn-group" role="group">
+                <button type="submit" class="btn btn-default" [disabled]="serverSearchForm.invalid">Perform search</button>
+                <button class="btn btn-default" (click)="clearSearchFilters()">Clear</button>
+              </div>
+
+            </form>
           </div>
-          <div class="form-group">
-            <select class="form-control" formControlName="searchCriterion" aria-describedby="searchHelp">
-              <option>Title</option>
-              <option>Author</option>
-              <option>Isbn</option>
-            </select>
-            <small id="searchHelp" class="form-text text-muted">Select the criterion on which you want to search</small>
-          </div>
-            <div class="btn-group" role="group">
-              <button type="submit" class="btn btn-default" [disabled]="serverSearchForm.invalid">Perform search</button>
-              <button class="btn btn-default" (click)="clearSearchFilters()">Clear</button>
+
+        </aside>
+
+        <div class="col-lg-10 col-12">
+
+          @if (books$ | async; as books) {
+            <div class="books-overview">
+              @if (books && books.length === 0) {
+                <div class="alert alert-secondary" role="alert">
+                  <strong>Welp... </strong> no books could be found...
+                  <br><hr><button class="btn btn-default" (click)="clearSearchFilters()">Clear filters</button>
+                </div>
+              }
+              @for (book of books; track book.id) {
+                <div class="card">
+                  <img class="card-img-top img-fluid" src="assets/book.jpg" alt="{{book.title}}">
+                  <div class="card-body text-center">
+                    <h5 class="card-title">{{book.title}}</h5>
+                    <p class="card-text">by <strong>{{book.author.authorName.name}}</strong></p>
+                    <a routerLink="{{book.id}}" class="btn btn-lg btn-block btn-primary">View this book</a>
+                  </div>
+                </div>
+              }
             </div>
-
-        </form>
-        </div>
-
-      </aside>
-
-      <div class="col-lg-10 col-12">
-
-        <div class="books-overview" *ngIf="books$ | async; let books; else loading">
-
-          <div *ngIf="books && books.length === 0" class="alert alert-secondary" role="alert">
-            <strong>Welp... </strong> no books could be found...
-            <br><hr><button class="btn btn-default" (click)="clearSearchFilters()">Clear filters</button>
-          </div>
-
-          <div class="card" *ngFor="let book of books">
-            <img class="card-img-top img-fluid" src="assets/book.jpg" alt="{{book.title}}">
-            <div class="card-body text-center">
-              <h5 class="card-title">{{book.title}}</h5>
-              <p class="card-text">by <strong>{{book.author.authorName.name}}</strong></p>
-              <a routerLink="{{book.id}}" class="btn btn-lg btn-block btn-primary">View this book</a>
+          } @else {
+            <div class="alert alert-secondary" role="alert">
+              We are retrieving the books...
             </div>
-          </div>
+          }
+
 
         </div>
-
-        <ng-template #loading>
-          <div class="alert alert-secondary" role="alert">
-            We are retrieving the books...
-          </div>
-        </ng-template>
-
       </div>
-    </div>
 
-  </div>
-</section>
+    </div>
+  </section>
