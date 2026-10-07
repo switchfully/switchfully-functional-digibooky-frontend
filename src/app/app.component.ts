@@ -3,12 +3,13 @@ import {ErrorService} from './interceptors/error.service';
 
 @Component({
   selector: 'app-root',
+  standalone: false,
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
 
-  errorMessage: string;
+  errorMessage = '';
   shouldShowErrorMessage = false;
 
   constructor(private errorService: ErrorService) {

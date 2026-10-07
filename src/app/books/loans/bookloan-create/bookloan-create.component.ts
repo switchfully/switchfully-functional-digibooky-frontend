@@ -7,19 +7,20 @@ import {Bookloan} from '../../shared/bookloan.model';
 
 @Component({
   selector: 'app-bookloan-create',
+  standalone: false,
   templateUrl: './bookloan-create.component.html',
   styleUrls: ['./bookloan-create.component.css']
 })
 export class BookloanCreateComponent implements OnInit {
 
-  bookloan$: Observable<Bookloan>;
+  bookloan$!: Observable<Bookloan>;
 
   constructor(private route: ActivatedRoute, private bookService: BookService) { }
 
   ngOnInit() {
     this.bookloan$ = this.route.paramMap.pipe(
       switchMap((params: ParamMap) =>
-        this.bookService.createBookloan(params.get('bookCopyId')))
+        this.bookService.createBookloan(params.get('bookCopyId')!))
     );
   }
 

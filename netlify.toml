@@ -1,6 +1,9 @@
 [build]
-  command = "npm run build -- --prod"
-  publish = "dist/switchfully-track-functional-digibooky-frontend"
+  command = "npm run build"
+  publish = "dist/switchfully-track-functional-digibooky-frontend/browser"
+
+[build.environment]
+  NODE_VERSION = "24"
 
 # index.html uses <base href="/track/functional/digibooky/">, so the browser asks for
 # bundles and routes under that prefix. Map them back onto the files at the site root.

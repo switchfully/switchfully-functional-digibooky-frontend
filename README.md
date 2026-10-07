@@ -1,29 +1,24 @@
 # SwitchfullyTrackFunctionalDigibookyFrontend
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.0.
+Originally generated with Angular CLI 7.3.0 (2019), migrated to Angular 22 in 2026.
+
+Requires Node.js 24 (or another version supported by the Angular CLI).
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-- If the app is not hosted at the base href level, use option `--base-href`
-  - E.g. `ng build --prod --base-href /track/functional/digibooky/`
+Run `npm run build` to build the project. The build defaults to the production configuration and the
+artifacts are stored in `dist/switchfully-track-functional-digibooky-frontend/browser`.
+- The base href (`/track/functional/digibooky/`) is set in `src/index.html`; override it with `--base-href` if needed.
+
+## Deployment
+
+The app is deployed on Netlify; see `netlify.toml` for the build command, publish directory and redirect rules.
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Run `npm start` for a dev server and open the URL it prints. The app will automatically reload if you change any of the source files.
+The development build talks to the backend at `http://localhost:9800/` (see `src/environments/environment.ts`).
 
 ## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Run `npm test` to execute the unit tests via [Vitest](https://vitest.dev).

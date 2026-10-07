@@ -1,53 +1,52 @@
-<section class="content" *ngIf="authors$ | async; let authors; else loading">
-  <header class="content-title">
-    <h1>Create book: {{bookCreationForm.controls.title.value}}</h1>
-  </header>
-  <div class="content-body">
-    <div class="row">
-
-      <div class="col-lg-12 col-12">
-
-        <form [formGroup]="bookCreationForm" (ngSubmit)="onSubmit()">
-          <div class="form-group">
-            <label for="titleField">Title of book</label>
-            <input type="text" formControlName="title" id="titleField" class="form-control">
-          </div>
-          <div class="form-group">
-            <label for="isbnField">ISBN-13</label>
-            <input type="text" formControlName="isbn" id="isbnField" class="form-control">
-            <small id="isbnPattern" class="form-text text-muted validation-text" *ngIf="bookCreationForm.controls.isbn.errors && bookCreationForm.controls.isbn.errors['pattern']">
-              Provide a valid ISBN-13, without colons or spaces.
-            </small>
-          </div>
-          <div class="form-group">
-            <label for="authorField">Author</label>
-            <select class="form-control" formControlName="authorId" id="authorField" aria-describedby="isbnPattern">
-              <option [value]="author.id" *ngFor="let author of authors">
-                {{author.authorName.name}}
-              </option>
-            </select>
-          </div>
-          <hr>
-          <button type="submit" class="btn btn-primary" [disabled]="bookCreationForm.invalid">&#10010; Create book</button>
-        </form>
-
-
-
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<ng-template #loading>
+@if (authors$ | async; as authors) {
   <section class="content">
     <header class="content-title">
-      <h1>Loading...</h1>
+      <h1>Create book: {{bookCreationForm.controls['title'].value}}</h1>
     </header>
     <div class="content-body">
-      <div class="alert alert-secondary" role="alert">
-        We are retrieving the available authors...
+      <div class="row">
+        <div class="col-lg-12 col-12">
+          <form [formGroup]="bookCreationForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <label for="titleField">Title of book</label>
+              <input type="text" formControlName="title" id="titleField" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="isbnField">ISBN-13</label>
+              <input type="text" formControlName="isbn" id="isbnField" class="form-control">
+              @if (bookCreationForm.controls['isbn'].errors && bookCreationForm.controls['isbn'].errors['pattern']) {
+                <small id="isbnPattern" class="form-text text-muted validation-text">
+                  Provide a valid ISBN-13, without colons or spaces.
+                </small>
+              }
+            </div>
+            <div class="form-group">
+              <label for="authorField">Author</label>
+              <select class="form-control" formControlName="authorId" id="authorField" aria-describedby="isbnPattern">
+                @for (author of authors; track author.id) {
+                  <option [value]="author.id">
+                    {{author.authorName.name}}
+                  </option>
+                }
+              </select>
+            </div>
+            <hr>
+              <button type="submit" class="btn btn-primary" [disabled]="bookCreationForm.invalid">&#10010; Create book</button>
+            </form>
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
-</ng-template>
+    </section>
+  } @else {
+    <section class="content">
+      <header class="content-title">
+        <h1>Loading...</h1>
+      </header>
+      <div class="content-body">
+        <div class="alert alert-secondary" role="alert">
+          We are retrieving the available authors...
+        </div>
+      </div>
+    </section>
+  }
+

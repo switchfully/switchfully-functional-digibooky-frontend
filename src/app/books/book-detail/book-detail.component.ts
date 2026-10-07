@@ -7,12 +7,13 @@ import {switchMap} from 'rxjs/operators';
 
 @Component({
   selector: 'app-book-detail',
+  standalone: false,
   templateUrl: './book-detail.component.html',
   styleUrls: ['./book-detail.component.css']
 })
 export class BookDetailComponent implements OnInit {
 
-  book$: Observable<Book>;
+  book$!: Observable<Book>;
 
   constructor(private bookService: BookService,
               private route: ActivatedRoute) {
@@ -21,7 +22,7 @@ export class BookDetailComponent implements OnInit {
   ngOnInit() {
     this.book$ = this.route.paramMap.pipe(
       switchMap((params: ParamMap) =>
-        this.bookService.getBook(params.get('bookId')))
+        this.bookService.getBook(params.get('bookId')!))
     );
   }
 

@@ -6,13 +6,14 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-books-overview',
+  standalone: false,
   templateUrl: './books-overview.component.html',
   styleUrls: ['./books-overview.component.css']
 })
 export class BooksOverviewComponent implements OnInit {
 
-  books$: Observable<Book[]>;
-  serverSearchForm: FormGroup;
+  books$!: Observable<Book[]>;
+  serverSearchForm!: FormGroup;
 
   constructor(private bookService: BookService) {
   }
