@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  baseUrl: 'https://switchfully-digibooky-test.herokuapp.com/'
+  baseUrl: 'https://switchfully-digibooky.herokuapp.com/'
 };
