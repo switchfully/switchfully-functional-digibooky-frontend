@@ -1,0 +1,21 @@
+[build]
+  command = "npm run build -- --prod"
+  publish = "dist/switchfully-track-functional-digibooky-frontend"
+
+# index.html uses <base href="/track/functional/digibooky/">, so the browser asks for
+# bundles and routes under that prefix. Map them back onto the files at the site root.
+[[redirects]]
+  from = "/"
+  to = "/track/functional/digibooky/"
+  status = 302
+
+[[redirects]]
+  from = "/track/functional/digibooky/*"
+  to = "/:splat"
+  status = 200
+
+# SPA fallback for deep links such as /books/1 (only applies when no file matches)
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
